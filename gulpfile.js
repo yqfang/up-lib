@@ -24,7 +24,7 @@ gulp.task('clean', function() {
 })
 gulp.task('scripts', ['clean'], function() {
 	var buildNg = function() {
-		return gulp.src(['ng-pack/angular.js', 'ng-pack/!(ngpack)*.js', 'ng-pack/ngpack.js'])
+		return gulp.src(['ng-pack/jquery.js', 'ng-pack/angular.js', 'ng-pack/!(ngpack)*.js', 'ng-pack/ngpack.js'])
 	}
 	var buildIE = function() {
 		return gulp.src('ie-pack/*.js')
