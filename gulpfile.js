@@ -22,14 +22,9 @@ gulp.task('build', ['scripts', 'styles', 'fonts']);
 gulp.task('clean', function() {
 	del.sync('dist');
 })
-gulp.task('scripts', ['clean'], function() {
-	var buildNg = function() {
-		return gulp.src(['ng-pack/jquery.js', 'ng-pack/angular.js', 'ng-pack/!(ngpack)*.js', 'ng-pack/ngpack.js'])
-	}
-	var buildIE = function() {
-		return gulp.src('ie-pack/*.js')
-	}
-	return streamqueue({ objectMode: true }, buildNg(), buildIE())
+gulp.task('scripts', ['scripts:ng', 'scripts:ie'])
+gulp.task('scripts:ng', ['clean'], function() {
+	return gulp.src(['ng-pack/jquery.js', 'ng-pack/angular.js', 'ng-pack/!(ngpack)*.js', 'ng-pack/ngpack.js'])
 		.pipe($.plumber({
 			errorHandler: handleError
 		}))
@@ -43,7 +38,24 @@ gulp.task('scripts', ['clean'], function() {
 	    .pipe($.concat('uplib.min.js'))
 	    .pipe($.sourcemaps.write('./'))
 	    .pipe(gulp.dest('dist'));
+
 });
+gulp.task('scripts:ie',['clean'], function() {
+	return gulp.src('ie-pack/*.js')
+		.pipe($.plumber({
+			errorHandler: handleError
+		}))
+		.pipe($.concat('uplib-ie.js'))
+		.pipe($.header(config.banner, {
+	      timestamp: (new Date()).toISOString(), pkg: config.pkg
+	    }))
+	    .pipe(gulp.dest('dist'))
+	    .pipe($.sourcemaps.init())
+	    .pipe($.uglify({preserveComments: 'some'}))
+	    .pipe($.concat('uplib-ie.min.js'))
+	    .pipe($.sourcemaps.write('./'))
+	    .pipe(gulp.dest('dist'));
+})
 gulp.task('styles', ['clean'], function() {
 	return gulp.src(['css-pack/**/*.css'])
 		.pipe($.sourcemaps.init())
