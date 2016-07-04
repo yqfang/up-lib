@@ -2,10 +2,14 @@
  * up-lib
  * https://github.com/yqfang/up-lib#readme
  * yqfang
- * Version: 1.0.0 - 2016-07-04T01:23:43.331Z
+ * Version: 1.0.0 - 2016-07-04T13:31:22.970Z
  * License: ISC
  */
 
+
+document.createElement('ui-select');
+document.createElement('ui-select-match');
+document.createElement('ui-select-choices');
 
 /*!
  * https://github.com/es-shims/es5-shim

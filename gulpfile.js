@@ -18,7 +18,7 @@ var config = {
 };
 
 gulp.task('default', ['build']);
-gulp.task('build', ['scripts', 'styles', 'fonts']);
+gulp.task('build', ['scripts', 'styles', 'styles:ie', 'fonts']);
 gulp.task('clean', function() {
 	del.sync('dist');
 })
@@ -68,6 +68,10 @@ gulp.task('styles', ['clean'], function() {
 		.pipe($.concat('uplib.min.css'))
 		.pipe($.sourcemaps.write('./', {debug: true}))
 		.pipe(gulp.dest('dist/css'));
+})
+gulp.task('styles:ie', ['clean'], function() {
+    return gulp.src('css-pack/css/uplib-ie.css', {base: 'css-pack/css'})
+        .pipe(gulp.dest('dist/css'))
 })
 gulp.task('fonts', ['clean'], function() {
 	return gulp.src('css-pack/fonts/**/*', {base: 'css-pack'})

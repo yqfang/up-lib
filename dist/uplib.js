@@ -2,7 +2,7 @@
  * up-lib
  * https://github.com/yqfang/up-lib#readme
  * yqfang
- * Version: 1.0.0 - 2016-07-04T01:23:43.206Z
+ * Version: 1.0.0 - 2016-07-04T13:31:22.837Z
  * License: ISC
  */
 
@@ -52842,4 +52842,4 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-angular.module('ng-package', ['ngSanitize', 'ngAnimate', 'ui.bootstrap', 'ui.select', 'ui.router', 'dialogs.services', 'oc.lazyLoad', 'ng.shims.placeholder', 'ngLocale']);
+angular.module('ng-package', ['ngSanitize', 'ngAnimate', 'ui.bootstrap', 'ui.select', 'ui.router', 'dialogs.main', 'oc.lazyLoad', 'ng.shims.placeholder', 'ngLocale']);
