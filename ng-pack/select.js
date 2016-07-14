@@ -679,7 +679,15 @@ uis.controller('uiSelectCtrl',
   ctrl.close = function(skipFocusser) {
     if (!ctrl.open) return;
     if (ctrl.ngModel && ctrl.ngModel.$setTouched) ctrl.ngModel.$setTouched();
-    _resetSearchInput();
+    /**
+     * [if description]
+     * @param  {[type]} !ctrl.tagging.isActivated [description]
+     * @return {[type]}
+     * 当使用tagging时，不需要清空selected的值
+     */
+    if (!ctrl.tagging.isActivated) {
+        _resetSearchInput();
+    }
     ctrl.open = false;
 
     $scope.$broadcast('uis:close', skipFocusser);
