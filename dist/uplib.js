@@ -2,7 +2,7 @@
  * up-lib
  * https://github.com/yqfang/up-lib#readme
  * yqfang
- * Version: 1.0.0 - 2016-07-10T12:04:30.488Z
+ * Version: 1.0.0 - 2016-07-14T01:20:15.228Z
  * License: ISC
  */
 
@@ -43332,7 +43332,15 @@ uis.controller('uiSelectCtrl',
   ctrl.close = function(skipFocusser) {
     if (!ctrl.open) return;
     if (ctrl.ngModel && ctrl.ngModel.$setTouched) ctrl.ngModel.$setTouched();
-    _resetSearchInput();
+    /**
+     * [if description]
+     * @param  {[type]} !ctrl.tagging.isActivated [description]
+     * @return {[type]}
+     * 当使用tagging时，不需要清空selected的值
+     */
+    if (!ctrl.tagging.isActivated) {
+        _resetSearchInput();
+    }
     ctrl.open = false;
 
     $scope.$broadcast('uis:close', skipFocusser);
