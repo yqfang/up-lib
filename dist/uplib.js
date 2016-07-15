@@ -2,7 +2,7 @@
  * up-lib
  * https://github.com/yqfang/up-lib#readme
  * yqfang
- * Version: 1.0.0 - 2016-07-14T01:20:15.228Z
+ * Version: 1.0.0 - 2016-07-15T06:21:06.768Z
  * License: ISC
  */
 
@@ -43436,7 +43436,7 @@ uis.controller('uiSelectCtrl',
         break;
       case KEY.ENTER:
         if(ctrl.open && (ctrl.tagging.isActivated || ctrl.activeIndex >= 0)){
-          if(!ctrl.tagging.isActivated)ctrl.select(ctrl.items[ctrl.activeIndex], ctrl.skipFocusser); // Make sure at least one dropdown item is highlighted before adding if not in tagging mode
+          if(!ctrl.tagging.isActivated) ctrl.select(ctrl.items[ctrl.activeIndex], ctrl.skipFocusser); // Make sure at least one dropdown item is highlighted before adding if not in tagging mode
         } else {
           ctrl.activate(false, true); //In case its the search input in 'multiple' mode
         }
