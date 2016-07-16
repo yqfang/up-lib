@@ -24,7 +24,7 @@ gulp.task('clean', function() {
 })
 gulp.task('scripts', ['scripts:ng', 'scripts:ie'])
 gulp.task('scripts:ng', ['clean'], function() {
-	return gulp.src(['ng-pack/jquery.js', 'ng-pack/angular.js', 'ng-pack/!(ngpack)*.js', 'ng-pack/ngpack.js'])
+	return gulp.src(['ng-pack/jquery.js', 'ng-pack/codemirror.js', 'ng-pack/sql.js', 'ng-pack/angular.js', 'ng-pack/!(ngpack)*.js', 'ng-pack/ngpack.js'])
 		.pipe($.plumber({
 			errorHandler: handleError
 		}))
