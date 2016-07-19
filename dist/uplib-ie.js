@@ -2,7 +2,7 @@
  * up-lib
  * https://github.com/yqfang/up-lib#readme
  * yqfang
- * Version: 1.0.0 - 2016-07-16T16:00:19.440Z
+ * Version: 1.0.0 - 2016-07-19T12:32:28.434Z
  * License: ISC
  */
 
